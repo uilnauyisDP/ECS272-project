@@ -11,10 +11,12 @@
     "out": "next build && next export"
   },
   "dependencies": {
+    "@types/d3": "^7.4.3",
     "@uiw/react-textarea-code-editor": "^1.4.4",
     "convert-csv-to-json": "^2.0.0",
     "css-loader": "^6.7.1",
     "csvtojson": "^2.0.10",
+    "d3": "^7.8.5",
     "next": "12.1.0",
     "next-remove-imports": "^1.0.6",
     "next-seo": "^5.1.0",
