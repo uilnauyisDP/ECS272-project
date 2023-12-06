@@ -6,6 +6,7 @@ import { CREATE_SEO_CONFIG, getArticleDetails } from '../../utils/utils';
 import Centered from './BlogCentered';
 import WithSidebar from './BlogWithSidebar';
 import HomeLayout from './HomeLayout';
+import { THEMES } from '../../shared/enums';
 
 interface IBlogLayout {
     children: any
@@ -26,16 +27,15 @@ const PageLayout = ({ children, PAGE_SEO, blogwithsidebar = false, blogcentered 
     } else {
         SEO_CONFIG = CREATE_SEO_CONFIG({ ...DEFAULT_SEO })
     }
+    localStorage.setItem(
+        "theme",
+        THEMES.LIGHT
+      );
 
     return (
         <>
-            <NextSeo {...SEO_CONFIG} />
-            <Navbar />
             {
-                blogwithsidebar ? <WithSidebar children={children} ads={ads} /> :
-                    blogcentered ? <Centered children={children} /> :
-                        home ? <HomeLayout children={children} /> :
-                            <HomeLayout children={children} />
+                <HomeLayout children={children} />
             }
         </>
     )
