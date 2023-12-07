@@ -171,7 +171,8 @@ const Home = () => {
           format as shown.
         </Text>
       </div>
-      <InteractivePieCharts></InteractivePieCharts>
+      <section style={{display: "flex", justifyContent: "center", alignItems: "center"}}>      <InteractivePieCharts></InteractivePieCharts></section>
+
     </PageLayout>
   );
 };
