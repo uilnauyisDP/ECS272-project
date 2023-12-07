@@ -186,7 +186,7 @@ const Home = () => {
         }}
       >
         {" "}
-        <InteractivePieCharts></InteractivePieCharts>
+        <InteractivePieCharts data={data}></InteractivePieCharts>
       </section>
 
       <section

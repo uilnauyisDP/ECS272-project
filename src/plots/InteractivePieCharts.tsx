@@ -1,20 +1,85 @@
 import * as d3 from "d3";
 import { useD3 } from "./useD3";
-import { CountryData, getDataAsync } from "../shared/data";
+import {
+  CountryData,
+  DevLevelAggregationType,
+  DevLvl,
+  getDataAsync,
+} from "../shared/data";
+import { useState } from "react";
 
 const width = 450;
 const height = 450;
 const margin = 40;
 
-export const InteractivePieCharts = (data: CountryData[]) => {
-  // Dictionary to store counts
-  const popByType: {} = {};
+interface InteractivePieChartsProps {
+  data: CountryData[];
+}
 
-  // Count objects by type
-  //data.forEach((thisData) => {
-  //  const type = obj.type;
-  //  countByType[type] = (countByType[type] || 0) + 1;
-  //});
+export const InteractivePieCharts = (props: InteractivePieChartsProps) => {
+  const data = props.data;
+
+  let sumEst = 0;
+  let sumT = 0;
+
+  const [showPop, setShowPop] = useState(true);
+
+  // Dictionary to store counts
+  const popByType: DevLevelAggregationType = {
+    DevelopedCountry: 0,
+    LeastDevelopedCountry: 0,
+    DevelopingCountry: 0,
+  };
+
+  const gdpByType: DevLevelAggregationType = {
+    DevelopedCountry: 0,
+    LeastDevelopedCountry: 0,
+    DevelopingCountry: 0,
+  };
+
+  const countByType: DevLevelAggregationType = {
+    DevelopedCountry: 0,
+    LeastDevelopedCountry: 0,
+    DevelopingCountry: 0,
+  };
+
+  //Count objects by type
+  data.forEach((thisData) => {
+    sumT += thisData.Population ? thisData.Population : 0;
+
+    const devLvl = thisData.DevelopmentLevel;
+    if (devLvl == DevLvl.NoData) {
+      return;
+    }
+
+    if (thisData.Population === null || thisData.GdpPerCapita === null) {
+      return;
+    }
+
+    switch (devLvl) {
+      case DevLvl.Developed:
+        popByType.DevelopedCountry += thisData.Population;
+        gdpByType.DevelopedCountry +=
+          thisData.GdpPerCapita * thisData.Population;
+        countByType.DevelopedCountry += 1;
+        break;
+      case DevLvl.Developing:
+        popByType.DevelopingCountry += thisData.Population;
+        gdpByType.DevelopingCountry +=
+          thisData.GdpPerCapita * thisData.Population;
+        countByType.DevelopingCountry += 1;
+        break;
+      case DevLvl.LeastDeveloped:
+        popByType.LeastDevelopedCountry += thisData.Population;
+        gdpByType.LeastDevelopedCountry +=
+          thisData.GdpPerCapita * thisData.Population;
+        countByType.LeastDevelopedCountry += 1;
+        break;
+      default:
+        break;
+    }
+    sumEst += thisData.Population;
+  });
 
   const thisRef = useD3((svg: any) => {
     // set the dimensions and margins of the graph
@@ -34,12 +99,19 @@ export const InteractivePieCharts = (data: CountryData[]) => {
     // set the color scale
     const color = d3
       .scaleOrdinal()
-      .domain(["a", "b", "c", "d", "e", "f"])
-      .range(d3.schemeDark2);
+      .domain(["developed", "developing", "leastDeveloped"])
+      .range(["blue",  "red", "green",]);
 
     // A function that create / update the plot for a given variable:
-    function update(data) {
+    function update() {
       // Compute the position of each group on the pie:
+      let data;
+      if (showPop) {
+        data = popByType
+      } else {
+        data = gdpByType
+      }
+
       const pie = d3
         .pie()
         .value(function (d) {
@@ -67,14 +139,40 @@ export const InteractivePieCharts = (data: CountryData[]) => {
     }
 
     // Initialize the plot with the first dataset
-    update(data1);
-  }, []);
+    update();
+  }, [showPop, ]);
 
   return (
-    <div>
-      <button onclick="update(data1)">Data 1</button>
-      <button onclick="update(data2)">Data 2</button>
-      <svg ref={thisRef} width={width} height={height}></svg>
+    <div className="container">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <svg ref={thisRef} width={width} height={height}></svg>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <button onClick={() => setShowPop(true)}
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Population
+        </button>
+        <button onClick={() => setShowPop(false)}
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          GDP
+        </button>
+      </div>
     </div>
   );
 };
