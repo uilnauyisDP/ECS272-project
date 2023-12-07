@@ -1,5 +1,12 @@
 /**These are necessary imports / components for the page */
-import { PageLayout, Text, LinkTo, Seperator, List, Image } from "../src/components";
+import {
+  PageLayout,
+  Text,
+  LinkTo,
+  Seperator,
+  List,
+  Image,
+} from "../src/components";
 import ArticleCard from "../src/components/ArticleCards/ArticleCard";
 import { SORTED_ARTICLES_BY_DATE } from "../BLOG_CONSTANTS/_ARTICLES_LIST";
 import { DEFAULT_SEO } from "../BLOG_CONSTANTS/_BLOG_SETUP";
@@ -171,8 +178,27 @@ const Home = () => {
           format as shown.
         </Text>
       </div>
-      <section style={{display: "flex", justifyContent: "center", alignItems: "center"}}>      <InteractivePieCharts></InteractivePieCharts></section>
+      <section
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {" "}
+        <InteractivePieCharts></InteractivePieCharts>
+      </section>
 
+      <section
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "90vh"
+        }}
+      >
+        <iframe width={"100%"} height={"90%"} src="https://uilnauyisdp.github.io/ParallelCoordinate/"></iframe>
+      </section>
     </PageLayout>
   );
 };
