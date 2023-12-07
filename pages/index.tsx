@@ -18,6 +18,7 @@ import { CountryData, getDataAsync } from "../src/shared/data";
 import CodeBlock from "../src/components/CodeBlock";
 import { AiFillYoutube } from "react-icons/ai";
 import { InteractivePieCharts } from "../src/plots/InteractivePieCharts";
+import {Map} from "../src/plots/WorldMap"
 
 const Home = () => {
   localStorage.setItem("theme", THEMES.LIGHT);
@@ -194,11 +195,24 @@ const Home = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+        }}
+      >
+        {" "}
+        <Map />
+      </section>
+
+      <section
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           height: "90vh"
         }}
       >
         <iframe width={"100%"} height={"90%"} src="https://uilnauyisdp.github.io/ParallelCoordinate/"></iframe>
       </section>
+
+
     </PageLayout>
   );
 };
