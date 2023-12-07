@@ -10,7 +10,7 @@ export interface CountryData {
   Country: string;
   CropsPercentage: number | null;
   Deathrate: number | null;
-  DevelopmentLevel: string | null;
+  DevelopmentLevel: DevLvl;
   GdpPerCapita: number | null;
   Industry: number | null;
   InfantMortality: number | null;
@@ -21,6 +21,19 @@ export interface CountryData {
   Population: number | null;
   Region: number | null;
   Service: number | null;
+}
+
+export enum DevLvl {
+  Developed,
+  Developing,
+  LeastDeveloped,
+  NoData
+}
+
+export interface DevLevelAggregationType {
+  DevelopedCountry: number
+  LeastDevelopedCountry: number
+  DevelopingCountry: number
 }
 
 // Convert CSV to JSON
@@ -496,31 +509,33 @@ export const getDataAsync = async () => {
         }
 
         function parseObject(obj: any): CountryData {
-          return {
-            Agriculture: tryParseNumber(obj["Agriculture"]),
-            ArableRate: tryParseNumber(obj["Arable (%)"]),
-            AreaSqMi: tryParseNumber(obj["Area (sq. mi.)"]),
-            Birthrate: tryParseNumber(obj["Birthrate"]),
-            Climate: tryParseNumber(obj["Climate"]),
-            CoastlineRatio: tryParseNumber(obj["Coastline (coast/area ratio)"]),
-            Country: obj["Country"].trim(),
-            CropsPercentage: tryParseNumber(obj["Crops (%)"]),
-            Deathrate: tryParseNumber(obj["Deathrate"]),
-            DevelopmentLevel: obj["Development level"],
-            GdpPerCapita: tryParseNumber(obj["GDP ($ per capita)"]),
-            Industry: tryParseNumber(obj["Industry"]),
-            InfantMortality: tryParseNumber(
-              obj["Infant mortality (per 1000 births)"]
-            ),
-            LiteracyRate: tryParseNumber(obj["Literacy (%)"]),
-            NetMigration: tryParseNumber(obj["Net migration"]),
-            PhonesPer1000: tryParseNumber(obj["Phones (per 1000)"]),
-            PopDensity: tryParseNumber(obj["Pop. Density (per sq. mi.)"]),
-            Population: tryParseNumber(obj["Population"]),
-            Region: tryParseNumber(obj["Region"]),
-            Service: tryParseNumber(obj["Service"]),
-          };
-        }
+            return {
+                Agriculture: tryParseNumber(obj['Agriculture']),
+                ArableRate: tryParseNumber(obj['Arable (%)']),
+                AreaSqMi: tryParseNumber(obj['Area (sq. mi.)']),
+                Birthrate: tryParseNumber(obj['Birthrate']),
+                Climate: tryParseNumber(obj['Climate']),
+                CoastlineRatio: tryParseNumber(obj['Coastline (coast/area ratio)']),
+                Country: obj['Country'].trim(),
+                CropsPercentage: tryParseNumber(obj['Crops (%)']),
+                Deathrate: tryParseNumber(obj['Deathrate']),
+                DevelopmentLevel: obj['Development level'] == 'Developing Country' ? 
+                  DevLvl.Developing : 
+                  (obj['Development level'] == 'Developed Country' ? DevLvl.Developed : 
+                  (obj['Development level'] == 'Least Developed Country') ? 
+                  DevLvl.LeastDeveloped : DevLvl.NoData),
+                GdpPerCapita: tryParseNumber(obj['GDP ($ per capita)']),
+                Industry: tryParseNumber(obj['Industry']),
+                InfantMortality: tryParseNumber(obj['Infant mortality (per 1000 births)']),
+                LiteracyRate: tryParseNumber(obj['Literacy (%)']),
+                NetMigration: tryParseNumber(obj['Net migration']),
+                PhonesPer1000:tryParseNumber(obj['Phones (per 1000)']),
+                PopDensity: tryParseNumber(obj['Pop. Density (per sq. mi.)']),
+                Population: tryParseNumber(obj['Population']),
+                Region: tryParseNumber(obj['Region']),
+                Service: tryParseNumber(obj['Service']),
+            };
+          }
 
         data.push(parseObject(rd));
       });
