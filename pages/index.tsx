@@ -21,7 +21,7 @@ import { InteractivePieCharts } from "../src/plots/InteractivePieCharts";
 import { Map } from "../src/plots/WorldMap";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { App, BarCharts } from "../src/plots/BarCharts";
+import { BarCharts } from "../src/plots/BarCharts";
 
 const Home = () => {
   localStorage.setItem("theme", THEMES.LIGHT);
