@@ -76,7 +76,7 @@ export function BarCharts(props: BarChartsProps) {
             ((divisor.least as number) / dividend.least) as number,
           ],
           borderColor: ["blue", "green", "red"],
-          backgroundColor: [" rgb(150, 150, 255)", "rgb(150, 255, 150)", "rgb(255, 150, 150)"],
+          backgroundColor: ["blue", "green", "red"],
         },
       ],
     };

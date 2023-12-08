@@ -134,7 +134,7 @@ const Home = () => {
 
         <Image
           className="mt-3"
-          src="/public/images/IMF_advanced_economies_and_UN_least_developed_countries.svg"
+          src="/public/images/worldmap.png"
           alt="nextjs-simple-blog-template"
           size={ImageSize.DEFAULT}
         />
@@ -340,6 +340,11 @@ const Home = () => {
           You can add as many authors you want just make sure you keep the
           format as shown.
         </Text>
+
+        <Text title className="text-3xl">
+          Implementation
+        </Text>
+        <hr className="mt-5" />
 
         <Text title className="text-3xl">
           Summary
