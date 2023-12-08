@@ -1,28 +1,36 @@
 import * as React from "react";
 import WorldMap from "react-svg-worldmap";
+import { CountryData, countryCode } from "../shared/data";
 
-export function Map() {
-  const data = [
-    { country: "cn", value: 1389618778 }, // china
-    { country: "in", value: 1311559204 }, // india
-    { country: "us", value: 331883986 }, // united states
-    { country: "id", value: 264935824 }, // indonesia
-    { country: "pk", value: 210797836 }, // pakistan
-    { country: "br", value: 210301591 }, // brazil
-    { country: "ng", value: 208679114 }, // nigeria
-    { country: "bd", value: 161062905 }, // bangladesh
-    { country: "ru", value: 141944641 }, // russia
-    { country: "mx", value: 127318112 }, // mexico
-  ];
+interface MapProp {
+  data: CountryData[];
+  selectedAttr: string
+  color: string
+}
+
+export function Map(props: MapProp) {
+  let data = props.data;
+
+  let ud : string[] = [];
+
+  const colorMap = {}
+
+  let plotData = data.map((d) => {
+    if (!countryCode[d.Country])
+      ud.push(d.Country);
+    return {
+      country: countryCode[d.Country],
+      value: d[props.selectedAttr as keyof CountryData]
+    };
+  });
 
   return (
     <div className="App">
       <WorldMap
-        color="red"
-        title="Top 10 Populous Countries"
+        color={props.color}
         value-suffix="people"
         size="lg"
-        data={data}
+        data={plotData}
       />
     </div>
   );

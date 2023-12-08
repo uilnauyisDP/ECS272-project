@@ -18,7 +18,9 @@ import { CountryData, getDataAsync } from "../src/shared/data";
 import CodeBlock from "../src/components/CodeBlock";
 import { AiFillYoutube } from "react-icons/ai";
 import { InteractivePieCharts } from "../src/plots/InteractivePieCharts";
-import {Map} from "../src/plots/WorldMap"
+import { Map } from "../src/plots/WorldMap";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 const Home = () => {
   localStorage.setItem("theme", THEMES.LIGHT);
@@ -30,6 +32,45 @@ const Home = () => {
       setData(parsedData);
     });
   }, []);
+
+  const options = [
+    'Agriculture',
+    'ArableRate',
+    'AreaSqMi',
+    'Birthrate',
+    'CoastlineRatio',
+    'CropsPercentage',
+    'Deathrate',
+    'GdpPerCapita',
+    'Industry',
+    'InfantMortality',
+    'LiteracyRate',
+    'NetMigration',
+    'PhonesPer1000',
+    'PopDensity',
+    'Population',
+    'Region',
+    'Service',];
+  const [option, setOption] = useState(options[0]);
+  const opColor = {
+    'Agriculture': 'blue',
+    'ArableRate': 'blue',
+    'AreaSqMi': 'blue',
+    'Birthrate': 'blue',
+    'CoastlineRatio': 'green',
+    'CropsPercentage': 'blue',
+    'Deathrate': 'red',
+    'GdpPerCapita': 'green',
+    'Industry': 'blue',
+    'InfantMortality': 'green',
+    'LiteracyRate': 'green',
+    'NetMigration': 'green',
+    'PhonesPer1000': 'blue',
+    'PopDensity': 'red',
+    'Population': 'blue',
+    'Region': 'blue',
+    'Service': 'green',
+  }
 
   return (
     <PageLayout home PAGE_SEO={DEFAULT_SEO}>
@@ -197,8 +238,19 @@ const Home = () => {
           alignItems: "center",
         }}
       >
-        {" "}
-        <Map />
+        <div>
+          <Dropdown
+            options={options}
+            onChange={(e) => {
+              setOption(e.value)
+            }}
+            value={option}
+            placeholder="Select an option"
+          />
+        </div>
+        <div>
+          <Map data={data} selectedAttr={option} color={opColor[option as keyof typeof opColor]} />
+        </div>
       </section>
 
       <section
@@ -206,13 +258,15 @@ const Home = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "90vh"
+          height: "90vh",
         }}
       >
-        <iframe width={"100%"} height={"90%"} src="https://uilnauyisdp.github.io/ParallelCoordinate/"></iframe>
+        <iframe
+          width={"100%"}
+          height={"90%"}
+          src="https://uilnauyisdp.github.io/ParallelCoordinate/"
+        ></iframe>
       </section>
-
-
     </PageLayout>
   );
 };

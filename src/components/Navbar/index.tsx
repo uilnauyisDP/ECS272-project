@@ -1,5 +1,4 @@
 import { NavbarType, THEMES } from "../../shared/enums";
-import SimpleNavbar from "./SimpleNavbar";
 import CenteredNavbar from "./Centered";
 import { useEffect, useState } from "react";
 import {
@@ -35,7 +34,7 @@ const Navbar = () => {
   }, [showSearch]);
 
   const changeTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "light" ? "light" : "dark");
   };
 
   const [scrolled, setScrolled] = useState(false);
@@ -74,76 +73,7 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <nav
-        className={combineClasses(
-          classes.navbar,
-          "bg-white  dark:bg-slate-900 dark:text-white text-black"
-        )}
-      >
-        {isMobile ? (
-          <SimpleNavbar
-            openSearch={openSearch}
-            changeTheme={changeTheme}
-            toggleSideMenu={toggleSideMenu}
-            openSidebar={openSidebar}
-            navSetup={PRIMARY_NAV}
-            onShareClick={onShareClick}
-          />
-        ) : (
-          (() => {
-            switch (PRIMARY_NAV.type) {
-              case NavbarType.DEFAULT:
-                return (
-                  <SimpleNavbar
-                    openSearch={openSearch}
-                    changeTheme={changeTheme}
-                    toggleSideMenu={toggleSideMenu}
-                    openSidebar={openSidebar}
-                    navSetup={PRIMARY_NAV}
-                    onShareClick={onShareClick}
-                  />
-                );
-              case NavbarType.CENTERED:
-                return (
-                  <CenteredNavbar
-                    openSearch={openSearch}
-                    changeTheme={changeTheme}
-                    toggleSideMenu={toggleSideMenu}
-                    openSidebar={openSidebar}
-                    navSetup={PRIMARY_NAV}
-                    onShareClick={onShareClick}
-                  />
-                );
-              default:
-                return (
-                  <SimpleNavbar
-                    openSearch={openSearch}
-                    changeTheme={changeTheme}
-                    toggleSideMenu={toggleSideMenu}
-                    openSidebar={openSidebar}
-                    navSetup={PRIMARY_NAV}
-                    onShareClick={onShareClick}
-                  />
-                );
-            }
-          })()
-        )}
-      </nav>
-
-      <NavSidebar
-        openSidebar={openSidebar}
-        closeNavSidebar={() => setOpenSidebar(false)}
-        navSetup={PRIMARY_NAV}
-        changeTheme={changeTheme}
-      />
-      {showSearch && <Search closeSearch={() => setShowSearch(false)} />}
-
-      <SocialShareModal
-        closeModal={() => setOpenShareModal(false)}
-        openShareModal={openShareModal}
-      />
-    </>
+    <></>
   );
 };
 

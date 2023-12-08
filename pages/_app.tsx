@@ -11,7 +11,6 @@ import { useEffect, useState } from 'react';
 import { CREATE_SEO_CONFIG } from '../src/utils/utils';
 import { ThemeProvider } from 'next-themes'
 
-import "@uiw/react-textarea-code-editor/dist.css";
 import 'react-medium-image-zoom/dist/styles.css';
 
 
