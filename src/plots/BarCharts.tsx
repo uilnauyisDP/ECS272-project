@@ -49,17 +49,26 @@ export function BarCharts(props: BarChartsProps) {
       if (thisCd.DevelopmentLevel == DevLvl.Developed) {
         divisor["developed"] +=
           (thisCd.Population as number) *
-          (thisCd[thisKey as keyof typeof thisCd] as number);
+          (thisCd[thisKey as keyof typeof thisCd] as number) *
+          (thisKey in ["Agriculture", "Industry", "Service"]
+            ? (thisCd.GdpPerCapita as number)
+            : 1);
         dividend["developed"] += thisCd.Population as number;
       } else if (thisCd.DevelopmentLevel == DevLvl.Developing) {
         divisor["developing"] +=
           (thisCd.Population as number) *
-          (thisCd[thisKey as keyof typeof thisCd] as number);
+          (thisCd[thisKey as keyof typeof thisCd] as number) *
+          (thisKey in ["Agriculture", "Industry", "Service"]
+            ? (thisCd.GdpPerCapita as number)
+            : 1);
         dividend["developing"] += thisCd.Population as number;
       } else if (thisCd.DevelopmentLevel == DevLvl.LeastDeveloped) {
         divisor["least"] +=
           (thisCd.Population as number) *
-          (thisCd[thisKey as keyof typeof thisCd] as number);
+          (thisCd[thisKey as keyof typeof thisCd] as number) *
+          (thisKey in ["Agriculture", "Industry", "Service"]
+            ? (thisCd.GdpPerCapita as number)
+            : 1);
         dividend["least"] += thisCd.Population as number;
       }
     });
@@ -99,7 +108,7 @@ export function BarCharts(props: BarChartsProps) {
         },
         title: {
           display: true,
-          text: title
+          text: title,
         },
       },
     };
@@ -110,32 +119,53 @@ export function BarCharts(props: BarChartsProps) {
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ width: "40%", display: "inline-block" }}>
-          <Bar options={setOption("Avg Infant Mortality Rate")} data={buildData(_data, "InfantMortality")} />
+          <Bar
+            options={setOption("Avg Infant Mortality Rate")}
+            data={buildData(_data, "InfantMortality")}
+          />
         </div>
         <div style={{ width: "40%", display: "inline-block" }}>
-          <Bar options={setOption("Avg Literacy Rate")} data={buildData(_data, "LiteracyRate")} />
-        </div>
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div style={{ width: "40%", display: "inline-block" }}>
-          <Bar options={setOption("Avg Birth Rate")} data={buildData(_data, "Birthrate")} />
-        </div>
-        <div style={{ width: "40%", display: "inline-block" }}>
-          <Bar options={setOption("Avg Death Rate")} data={buildData(_data, "Deathrate")} />
+          <Bar
+            options={setOption("Avg Literacy Rate")}
+            data={buildData(_data, "LiteracyRate")}
+          />
         </div>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ width: "40%", display: "inline-block" }}>
-          <Bar options={setOption("Avg Agriculture Percentage")} data={buildData(_data, "Agriculture")} />
+          <Bar
+            options={setOption("Avg Net Migration")}
+            data={buildData(_data, "NetMigration")}
+          />
         </div>
         <div style={{ width: "40%", display: "inline-block" }}>
-          <Bar options={setOption("Avg Industry Percentage")} data={buildData(_data, "Industry")} />
+          <Bar
+            options={setOption("Avg GDP Per Capita")}
+            data={buildData(_data, "GdpPerCapita")}
+          />
+        </div>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ width: "40%", display: "inline-block" }}>
+          <Bar
+            options={setOption("Avg Agriculture Percentage")}
+            data={buildData(_data, "Agriculture")}
+          />
+        </div>
+        <div style={{ width: "40%", display: "inline-block" }}>
+          <Bar
+            options={setOption("Avg Industry Percentage")}
+            data={buildData(_data, "Industry")}
+          />
         </div>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {" "}
         <div style={{ width: "40%", display: "inline-block" }}>
-          <Bar options={setOption("Avg Service Percentage")} data={buildData(_data, "Service")} />
+          <Bar
+            options={setOption("Avg Service Percentage")}
+            data={buildData(_data, "Service")}
+          />
         </div>
       </div>
     </div>

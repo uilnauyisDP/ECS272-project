@@ -17,7 +17,7 @@ const HomeLayoutExample = () => {
                     <LinkTo href="/" passHref> Home</LinkTo>,
                     <LinkTo href="/pages/about-us.tsx" passHref> About</LinkTo>,
                     <LinkTo href="/pages/tutorial/icons.tsx" passHref> Icons</LinkTo>,
-                    <LinkTo href="/pages/privacy-policy.tsx" passHref> Privacy Policy</LinkTo>,
+                    <LinkTo href="/pages/privacy-policy.tsx" passHref> </LinkTo>,
                     <LinkTo href="/pages/terms-and-condition.tsx" passHref> Terms & Conditions </LinkTo> pages.
                 </Text>
 

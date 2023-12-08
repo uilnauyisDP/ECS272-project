@@ -8,7 +8,7 @@ const AboutUs = () => {
     const PAGE_SEO: iSEO = {
         title: 'About Us',
         description: `Hi we are WebExpe. This is an open source blog template which can help you start a simple static blog.`,
-        keywords: 'webexpx, contact us, webexpe13@gmail.com, next js blog template',
+        keywords: 'webexpx, contact us, webexpe13@gmail.com, ',
         author: 'Mayur Nalwala, Rupali Yadav'
     }
     return (
@@ -41,7 +41,7 @@ const AboutUs = () => {
                                 <li>Light and Dark theme</li>
                                 <li>Default and Centered Layout</li>
                                 <li>Maximize lighthouse score</li>
-                                <li>Privacy Policy, Terms and Conditions page template</li>
+                                <li>,  page template</li>
                                 <li>Integrate with <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS </a></li>
                                 <li>Type checking TypeScript</li>
                                 <li>SEO metadata, Open Graph tags with Next SEO</li>
@@ -79,7 +79,7 @@ const AboutUs = () => {
                         License
                     </Text>
                     <Text p className='text-lg'>
-                        Licensed under the MIT License, Copyright © {CURRENT_YEAR}
+                        Licensed under the MIT License, {CURRENT_YEAR}
                     </Text>
                     <Text p className='text-lg'>
                         This is an open source project everyone is welcome to contribute. Feel free to open an issue, if you have any questions or incase you find a bug. Create your versions of this template and help the community, also if you are using our template a little credit will be much appreciated.

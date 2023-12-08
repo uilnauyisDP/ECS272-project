@@ -6,29 +6,29 @@ import { WEBSITE_URL } from "../BLOG_CONSTANTS/_BLOG_SETUP";
 
 const TermsAndConditions = () => {
     const PAGE_SEO: iSEO = {
-        title: 'Terms and conditions',
-        description: `These terms and conditions outline the rules and regulations for the use of Website, located at ${WEBSITE_URL}.`,
-        keywords: 'webexpx, contact us, webexpe13@gmail.com, next js blog template',
+        title: '',
+        description: `These  outline the rules and regulations for the use of Website, located at ${WEBSITE_URL}.`,
+        keywords: 'webexpx, contact us, webexpe13@gmail.com, ',
         author: 'Mayur Nalwala, Rupali Yadav'
     }    
     return (
         <PageLayout PAGE_SEO={PAGE_SEO} home>
             <div className='container px-3 pb-[20px] mt-10 pt-14 md:pt-0'>
                 <Text title className="text-3xl">
-                    Terms and Conditions
+                    
                 </Text>
                 <Text p >
                     Welcome to [Website_Name]! <br /><br />
-                    These terms and conditions outline the rules and regulations for the use of [Company_Name]'s Website, located at [Website_URL]. <br />
-                    By accessing this website we assume you accept these terms and conditions. Do not continue to use [Website_Name] if you do not agree to take all of the terms and conditions stated on this page. <br />
-                    The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
+                    These  outline the rules and regulations for the use of [Company_Name]'s Website, located at [Website_URL]. <br />
+                    By accessing this website we assume you accept these . Do not continue to use [Website_Name] if you do not agree to take all of the  stated on this page. <br />
+                    The following terminology applies to these , Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s . "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
                 </Text>
                 <Seperator line />
                 <Text subtitle className="text-xl">
                     Cookies
                 </Text>
                 <Text p >
-                    We employ the use of cookies. By accessing [Website_Name], you agreed to use cookies in agreement with the [Company_Name]'s Privacy Policy. <br />
+                    We employ the use of cookies. By accessing [Website_Name], you agreed to use cookies in agreement with the [Company_Name]'s . <br />
                     Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
                 </Text>
                 <Seperator line />
@@ -36,7 +36,7 @@ const TermsAndConditions = () => {
                     License
                 </Text>
                 <Text p >
-                    Unless otherwise stated, [Company_Name] and/or its licensors own the intellectual property rights for all material on [Website_Name]. All intellectual property rights are reserved. You may access this from [Website_Name] for your own personal use subjected to restrictions set in these terms and conditions.
+                    Unless otherwise stated, [Company_Name] and/or its licensors own the intellectual property rights for all material on [Website_Name]. All intellectual property rights are reserved. You may access this from [Website_Name] for your own personal use subjected to restrictions set in these .
                 </Text>
                 <Text p >You must not:</Text>
                 <ul className="list-disc pl-8">
@@ -46,9 +46,9 @@ const TermsAndConditions = () => {
                     <li>Redistribute content from [Website_Name]</li>
                 </ul>
                 <Text p >
-                    This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the Terms And Conditions Generator. <br /><br />
+                    This Agreement shall begin on the date hereof. Our  were created with the help of the  Generator. <br /><br />
                     Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. [Company_Name] does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of [Company_Name],its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, [Company_Name] shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website. <br />
-                    [Company_Name] reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.
+                    [Company_Name] reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these .
                 </Text>
 
                 <Text p >You warrant and represent that:</Text>
@@ -118,7 +118,7 @@ const TermsAndConditions = () => {
                     Reservation of Rights
                 </Text>
                 <Text p> 
-                    We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.
+                    We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these  and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking .
                 </Text>
                 <Seperator line />
                 <Text subtitle className="text-xl">

@@ -5,28 +5,28 @@ import { iSEO } from "../src/shared/interfaces";
 
 const TermsAndConditions = () => {
     const PAGE_SEO: iSEO = {
-        title: 'Privacy Policy',
-        description: `This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in website`,
-        keywords: 'webexpx, contact us, webexpe13@gmail.com, next js blog template',
+        title: '',
+        description: `This  applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in website`,
+        keywords: 'webexpx, contact us, webexpe13@gmail.com, ',
         author: 'Mayur Nalwala, Rupali Yadav'
     }
     return (
         <PageLayout PAGE_SEO={PAGE_SEO} home>
             <div className='container px-3 pb-[20px] mt-10 pt-14 md:pt-0'>
                 <Text title className="text-3xl">
-                    Privacy Policy
+                    
                 </Text>
                 <Text p>
-                    At [Website_Name], accessible from [Website_URL], one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by [Website_Name] and how we use it. <br />
-                    If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us. <br />
-                    This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in [Website_Name]. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the Privacy Policy Generator.
+                    At [Website_Name], accessible from [Website_URL], one of our main priorities is the privacy of our visitors. This  document contains types of information that is collected and recorded by [Website_Name] and how we use it. <br />
+                    If you have additional questions or require more information about our , do not hesitate to contact us. <br />
+                    This  applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in [Website_Name]. This policy is not applicable to any information collected offline or via channels other than this website. Our  was created with the help of the  Generator.
                 </Text>
                 <Seperator line />
                 <Text subtitle className="text-xl">
                     Consent
                 </Text>
                 <Text p> 
-                    By using our website, you hereby consent to our Privacy Policy and agree to its terms.
+                    By using our website, you hereby consent to our  and agree to its terms.
                 </Text>
                 <Seperator line />
                 <Text subtitle className="text-xl">
@@ -74,14 +74,14 @@ const TermsAndConditions = () => {
                     Google DoubleClick DART Cookie
                 </Text>
                 <Text p>
-                    Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – https://policies.google.com/technologies/ads
+                    Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network  at the following URL – https://policies.google.com/technologies/ads
                 </Text>
                 <Seperator line />
                 <Text subtitle className="text-xl">
                     Our Advertising Partners
                 </Text>
                 <Text p>
-                    Some of advertisers on our site may use cookies and web beacons. Our advertising partners are listed below. Each of our advertising partners has their own Privacy Policy for their policies on user data. For easier access, we hyperlinked to their Privacy Policies below.
+                    Some of advertisers on our site may use cookies and web beacons. Our advertising partners are listed below. Each of our advertising partners has their own  for their policies on user data. For easier access, we hyperlinked to their Privacy Policies below.
 
                     <ul className="list-disc pl-8">
                         <li>Google : https://policies.google.com/technologies/ads</li>
@@ -92,7 +92,7 @@ const TermsAndConditions = () => {
                     Advertising Partners Privacy Policies
                 </Text>
                 <Text p>
-                    You may consult this list to find the Privacy Policy for each of the advertising partners of [Website_Name]. <br />
+                    You may consult this list to find the  for each of the advertising partners of [Website_Name]. <br />
                     Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on [Website_Name], which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit. <br />
                     Note that [Website_Name] has no access to or control over these cookies that are used by third-party advertisers.
                 </Text>
@@ -101,7 +101,7 @@ const TermsAndConditions = () => {
                     Third Party Privacy Policies
                 </Text>
                 <Text p>
-                    [Website_Name]'s Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. <br />
+                    [Website_Name]'s  does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. <br />
                     You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.
                 </Text>
                 <Seperator line />

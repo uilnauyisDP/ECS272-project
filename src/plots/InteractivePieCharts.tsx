@@ -79,7 +79,15 @@ export const InteractivePieCharts = (props: InteractivePieChartsProps) => {
         break;
     }
     sumEst += thisData.Population;
+
+    
   });
+
+
+  console.log(popByType.DevelopedCountry + popByType.DevelopingCountry + popByType.LeastDevelopedCountry);
+  console.log(popByType)
+  console.log(gdpByType.DevelopedCountry + gdpByType.DevelopingCountry + gdpByType.LeastDevelopedCountry);
+  console.log(gdpByType)
 
   const thisRef = useD3((svg: any) => {
     // set the dimensions and margins of the graph
