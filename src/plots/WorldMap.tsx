@@ -25,13 +25,18 @@ export function Map(props: MapProp) {
   });
 
   let maxVal = Math.max(...plotData.map((pt) => pt.value as number));
+  let minVal = Math.min(0, Math.min(...plotData.map((pt) => pt.value as number)));
+
+  let diff = maxVal - minVal;
+
 
   // Usage
   const legendItems: LegendItem[] = [
-    { color: props.color, label: `${(maxVal * 0.2).toFixed(2)}`, opacity: 0.2 },
-    { color: props.color, label: `${(maxVal * 0.4).toFixed(2)}`, opacity: 0.4 },
-    { color: props.color, label: `${(maxVal * 0.6).toFixed(2)}`, opacity: 0.6 },
-    { color: props.color, label: `${(maxVal * 0.8).toFixed(2)}`, opacity: 0.8 },
+    { color: props.color, label: `${(diff * 0.0 + minVal).toFixed(2)}`, opacity: 0.0 },
+    { color: props.color, label: `${(diff * 0.2 + minVal).toFixed(2)}`, opacity: 0.2 },
+    { color: props.color, label: `${(diff * 0.4 + minVal).toFixed(2)}`, opacity: 0.4 },
+    { color: props.color, label: `${(diff * 0.6 + minVal).toFixed(2)}`, opacity: 0.6 },
+    { color: props.color, label: `${(diff * 0.8 + minVal).toFixed(2)}`, opacity: 0.8 },
   ];
 
   return (
@@ -39,10 +44,10 @@ export function Map(props: MapProp) {
       <ColorLegend legendItems={legendItems} />
       {/* Your other components or content here */}
 
-      <WorldMap
+      <WorldMap 
         color={props.color}
         value-suffix="people"
-        size="lg"
+        size="responsive"
         data={plotData}
       />
     </div>

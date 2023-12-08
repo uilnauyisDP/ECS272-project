@@ -11,7 +11,7 @@ export const ColorLegend: React.FC<{ legendItems: LegendItem[] }> = ({
 }) => {
   const cmap: Record<string, string> = {
     blue: "rgba(0, 0, 255,",
-    green: "rgba(0, 255, 0,",
+    green: "rgba(0, 128, 0,",
     red: "rgba(255, 0, 0,",
   };
 
@@ -21,7 +21,7 @@ export const ColorLegend: React.FC<{ legendItems: LegendItem[] }> = ({
         <span style={{ color: "transparent" }}>placeholder</span>
         <div style={{ border: "solid #ccc" }}>
           <div>
-            <span style={{ color: "transparent",display: "inline-block",width: "160px", height: "10px" }}></span>
+
             {legendItems.map((item, index) => (
               <span
                 key={index}
@@ -38,16 +38,7 @@ export const ColorLegend: React.FC<{ legendItems: LegendItem[] }> = ({
             ))}
           </div>
           <div>
-            <span
-              className="color-box"
-              style={{
-                width: "160px",
-                textAlign: "center",
-                display: "inline-block",
-              }}
-            >
-              0
-            </span>
+
             {legendItems.map((item, index) => (
               <span
                 key={index}
