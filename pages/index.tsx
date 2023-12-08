@@ -34,43 +34,44 @@ const Home = () => {
   }, []);
 
   const options = [
-    'Agriculture',
-    'ArableRate',
-    'AreaSqMi',
-    'Birthrate',
-    'CoastlineRatio',
-    'CropsPercentage',
-    'Deathrate',
-    'GdpPerCapita',
-    'Industry',
-    'InfantMortality',
-    'LiteracyRate',
-    'NetMigration',
-    'PhonesPer1000',
-    'PopDensity',
-    'Population',
-    'Region',
-    'Service',];
+    "Agriculture",
+    "ArableRate",
+    "AreaSqMi",
+    "Birthrate",
+    "CoastlineRatio",
+    "CropsPercentage",
+    "Deathrate",
+    "GdpPerCapita",
+    "Industry",
+    "InfantMortality",
+    "LiteracyRate",
+    "NetMigration",
+    "PhonesPer1000",
+    "PopDensity",
+    "Population",
+    "Region",
+    "Service",
+  ];
   const [option, setOption] = useState(options[0]);
   const opColor = {
-    'Agriculture': 'blue',
-    'ArableRate': 'blue',
-    'AreaSqMi': 'blue',
-    'Birthrate': 'blue',
-    'CoastlineRatio': 'green',
-    'CropsPercentage': 'blue',
-    'Deathrate': 'red',
-    'GdpPerCapita': 'green',
-    'Industry': 'blue',
-    'InfantMortality': 'green',
-    'LiteracyRate': 'green',
-    'NetMigration': 'green',
-    'PhonesPer1000': 'blue',
-    'PopDensity': 'red',
-    'Population': 'blue',
-    'Region': 'blue',
-    'Service': 'green',
-  }
+    Agriculture: "blue",
+    ArableRate: "blue",
+    AreaSqMi: "blue",
+    Birthrate: "blue",
+    CoastlineRatio: "green",
+    CropsPercentage: "blue",
+    Deathrate: "red",
+    GdpPerCapita: "green",
+    Industry: "blue",
+    InfantMortality: "green",
+    LiteracyRate: "green",
+    NetMigration: "green",
+    PhonesPer1000: "blue",
+    PopDensity: "red",
+    Population: "blue",
+    Region: "blue",
+    Service: "green",
+  };
 
   return (
     <PageLayout home PAGE_SEO={DEFAULT_SEO}>
@@ -105,13 +106,117 @@ const Home = () => {
 
       <div className="container px-3 pb-[20px] md:mt-[50px] pt-20 md:pt-0">
         <Text title className="text-3xl">
-          Blog Setup
+          Background
         </Text>
         <hr className="mt-5" />
-        <Text subtitle className="mt-10">
-          1. Installing Node, VS Code and downloading the project on your
-          computer.
+
+        <Text p>
+          The International Monetary Fund (IMF) categorizes 41 countries as
+          advanced economies, reflecting their high levels of income and
+          economic development. These nations often possess well-established
+          infrastructure, robust industrial sectors, and a high standard of
+          living for their citizens. In contrast, the United Nations lists 46
+          countries as the least developed countries (LDCs), highlighting their
+          challenges in poverty, limited economic resources, and lower levels of
+          industrialization. These countries often struggle with issues like low
+          income per capita, inadequate healthcare systems, and limited access
+          to education. The countries not included in these two categories are
+          classified as developing countries. These nations are characterized by
+          their efforts to improve their economic status and quality of life for
+          their citizens, often showing moderate levels of industrialization,
+          rising infrastructural development, and gradual improvements in
+          healthcare and education systems. This diverse global economic
+          landscape underscores the varying levels of progress and challenges
+          faced by countries worldwide.
         </Text>
+
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {" "}
+          <InteractivePieCharts data={data}></InteractivePieCharts>
+        </section>
+
+        <Text p>
+          According to the IMF, there are 41 countries classified as advanced
+          economies. While there are 46 listed as the least developed countries
+          by the UN. The rest of the countries are considered as developing
+          countries.
+        </Text>
+        <br></br>
+        <br></br>
+
+        <Text title className="text-3xl">
+          Introduction
+        </Text>
+        <hr className="mt-5" />
+
+        <text p>
+          When considering these questions, many different aspects would be
+          raised, such as GDP, GDP per capita, Population, Education,
+          Development Level, Agriculture, Industry, Technology, Population
+          Structure, etc. However, not all aspects can be thought of as the
+          factors behind the success of a country. Now, please stay curious,
+          come with us to dive deeper to discover the potential factors leading
+          to the success of a country. Our strategy is to compare differences
+          between developed countries, developing countries, and least developed
+          countries in terms of some attributes.
+        </text>
+        <br></br>
+        <br></br>
+
+        <Text title className="text-3xl">
+          Data Visualization and Analysis
+        </Text>
+        <hr className="mt-5" />
+
+        
+
+      <section
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <Dropdown
+            options={options}
+            onChange={(e) => {
+              setOption(e.value);
+            }}
+            value={option}
+            placeholder="Select an option"
+          />
+        </div>
+        <div>
+          <Map
+            data={data}
+            selectedAttr={option}
+            color={opColor[option as keyof typeof opColor]}
+          />
+        </div>
+      </section>
+
+      <section
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "90vh",
+        }}
+      >
+        <iframe
+          width={"100%"}
+          height={"90%"}
+          src="https://uilnauyisdp.github.io/ParallelCoordinate/"
+        ></iframe>
+      </section>
+
         <List type={ListType.disc} className="mt-5">
           <li className="">
             You will need <b>node js</b> installed in your computer <br />
@@ -219,54 +324,14 @@ const Home = () => {
           You can add as many authors you want just make sure you keep the
           format as shown.
         </Text>
+
+
+      <Text title className="text-3xl">
+        Summary
+      </Text>
+      <hr className="mt-5" />
       </div>
-      <section
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {" "}
-        <InteractivePieCharts data={data}></InteractivePieCharts>
-      </section>
 
-      <section
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <Dropdown
-            options={options}
-            onChange={(e) => {
-              setOption(e.value)
-            }}
-            value={option}
-            placeholder="Select an option"
-          />
-        </div>
-        <div>
-          <Map data={data} selectedAttr={option} color={opColor[option as keyof typeof opColor]} />
-        </div>
-      </section>
-
-      <section
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "90vh",
-        }}
-      >
-        <iframe
-          width={"100%"}
-          height={"90%"}
-          src="https://uilnauyisdp.github.io/ParallelCoordinate/"
-        ></iframe>
-      </section>
     </PageLayout>
   );
 };
